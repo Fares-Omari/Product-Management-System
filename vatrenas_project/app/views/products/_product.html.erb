@@ -7,7 +7,7 @@
       <div class="card-body">
         <h5 class="card-title"><%= product.name %></h5>
         <p class="card-text"><%= product.description %></p>
-        <p><strong>Price:</strong> $<%= product.price %></p>
+        <p><strong>Price:</strong> <%= product.price %> <%= product.currency%></p>
         <p><strong>Quantity:</strong> <%= product.quantity %></p>
         <div style="display: flex; gap: 10px; width: 100%;">
           <%= link_to "Edit", edit_product_path(product), class: "btn btn-primary",
