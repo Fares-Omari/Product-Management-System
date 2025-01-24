@@ -1,0 +1,44 @@
+<turbo-frame id="product_<%= @product.id %>">
+  <%= form_with model: @product, local: false do |form| %>
+
+    <% if product.errors.any? %>
+      <div style="color: red">
+        <h2><%= pluralize(product.errors.count, "error") %></h2>
+
+        <ul>
+          <% product.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="form-group">
+      <%= form.label :name %>
+      <%= form.text_field :name,required: true,class: "form-control"  %>
+    </div>
+    <div class="form-group">
+      <%= form.label :description %>
+      <%= form.text_area :description, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= form.label :price %>
+      <%= form.text_field :price, required: true,class: "form-control" %>
+      <div class="form-group">
+        <%= form.label :currency %>
+        <%= form.text_field :currency, required: true, class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= form.label :quantity %>
+      <%= form.number_field :quantity, required: true, class: "form-control", min: 1, step: 1  %>
+    </div>
+    <div>
+      <%= form.label :image,class:"imagee"%>
+      <%= form.file_field :image , required: product.new_record?,class: "form-control" %>
+    </div>
+
+    <%= form.submit product.new_record? ? "Save Product" : "Edit Product", class: "btn btn-primary" %>
+  <% end %>
+  <%= button_to "Cancel", products_path, method: :get, data: { turbo_frame: (params[:action] == "edit" ? "edit_product_form" : "new_product_form") }, class: "btn btn-secondary " %>
+</turbo-frame>

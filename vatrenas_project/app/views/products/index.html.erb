@@ -1,0 +1,27 @@
+<% content_for :title, "Products" %>
+
+<div class="container mt-2">
+  <h1 class="text-center">Admin Page</h1>
+</div>
+
+<div class="container mt-4">
+  <turbo-frame id="new_product_form">
+    <h1>Products
+
+    <%= link_to "New Product", new_product_path, data: { turbo_frame: "product" }, class: "btn btn-success" ,
+                style: "float: right; padding: 10px 20px; font-size: 16px;background-color: blue; color: white;"%>
+    </h1>
+  </turbo-frame>
+
+  <turbo-frame id="products_list">
+    <% if @products.any? %>
+      <div class="row">
+        <% @products.each do |product| %>
+          <%= render partial: "products/product", locals: { product: product } %>
+        <% end %>
+      </div>
+    <% else %>
+      <p>No Products Found.</p>
+    <% end %>
+  </turbo-frame>
+</div>

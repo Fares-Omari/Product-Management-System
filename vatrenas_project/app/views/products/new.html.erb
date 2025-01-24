@@ -1,0 +1,9 @@
+<% content_for :title, "New Product" %>
+
+<div class="container mt-4">
+  <turbo-frame id="new_product_form">
+    <h3 class="text-center">Create a New Product</h3>
+    <%= render 'form', product: @product %>
+  </turbo-frame>
+
+</div>
