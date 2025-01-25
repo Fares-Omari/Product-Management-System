@@ -28,6 +28,7 @@ Installation
  1. Clone the repository:
 
 git clone https://github.com/fares22-glitch/Product-Management-System
+
 cd product-management-system  
 
 
