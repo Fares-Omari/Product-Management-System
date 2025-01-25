@@ -55,7 +55,10 @@ http://localhost:3000
 
 Seeded Admin User
 
-The database is pre-seeded with an admin user for testing purposes
+The database is pre-seeded with an admin user for testing purposes:
+
+- email: fares@gmail.com
+- password: 123456
 
 Usage
  1. Home Page:
