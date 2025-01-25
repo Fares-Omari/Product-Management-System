@@ -2,7 +2,7 @@
 
 User.create!(
   name: "Fares Omari",
-  email: "faresomarii13@gmail.com",
+  email: "fares@gmail.com",
   password: "123456",
   role: "admin"
 )
