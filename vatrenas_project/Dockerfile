@@ -11,13 +11,17 @@ RUN apt-get update -qq && \
     apt-get install --no-install-recommends -y \
     build-essential \
     default-libmysqlclient-dev \
-    curl \
+    libssl-dev \
+    libreadline-dev \
+    zlib1g-dev \
     git \
+    curl \
     libjemalloc2 \
     libvips \
     nodejs \
     yarn && \
     rm -rf /var/lib/apt/lists/*
+
 
 # Set bundler environment variables
 ENV RAILS_ENV="production" \
