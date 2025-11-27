@@ -14,6 +14,8 @@ RUN apt-get update -qq && \
     libssl-dev \
     libreadline-dev \
     zlib1g-dev \
+    libyaml-dev \
+    libffi-dev \
     git \
     curl \
     libjemalloc2 \
@@ -21,6 +23,7 @@ RUN apt-get update -qq && \
     nodejs \
     yarn && \
     rm -rf /var/lib/apt/lists/*
+
 
 
 # Set bundler environment variables
@@ -47,8 +50,9 @@ RUN SECRET_KEY_BASE_DUMMY=1 ./bin/rails assets:precompile
 
 # Create non-root user
 RUN groupadd --system --gid 1000 rails && \
-    useradd rails --uid 1000 --gid 1000 --create-home --shell /bin/bash rails && \
+    useradd --uid 1000 --gid 1000 --create-home --shell /bin/bash rails && \
     chown -R rails:rails db log storage tmp
+
 
 USER rails
 
